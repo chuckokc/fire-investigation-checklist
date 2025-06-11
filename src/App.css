@@ -1,0 +1,192 @@
+/* Main container styling with a subtle background */
+.App {
+  padding: 20px;
+  max-width: 1200px;  /* Increased width to accommodate columns */
+  margin: 0 auto;
+  background: #f8f9fa;
+  min-height: 100vh;  /* This ensures the background covers the full page */
+}
+
+/* Tab buttons with enhanced visual effects */
+.tab-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Subtle shadow effect */
+}
+
+.tab-buttons button {
+  padding: 12px 24px;
+  border: 1px solid #e0e0e0;
+  background: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;  /* Smooth transition for all changes */
+  font-weight: 500;
+}
+
+.tab-buttons button:hover {
+  background: #f0f0f0;
+  transform: translateY(-1px);  /* Slight lift effect on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-buttons button.active {
+  background: #007bff;
+  color: white;
+  border-color: #0056b3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Two-column layout for checklist content */
+.checklist-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* Creates two equal columns */
+  gap: 20px;  /* Space between columns */
+  margin-top: 20px;
+}
+
+/* Section styling with enhanced visual effects */
+.checklist-section {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.checklist-section:hover {
+  transform: translateY(-2px);  /* Slight lift on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Section heading with decorative elements */
+.checklist-section h3 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 1.2em;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #007bff;
+  position: relative;
+}
+
+/* Individual checklist items with hover effects */
+.checklist-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  margin: 4px 0;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.checklist-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Checkbox styling with animation */
+.checklist-item input[type="checkbox"] {
+  margin-right: 12px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.checklist-item input[type="checkbox"]:checked {
+  transform: scale(1.1);  /* Slight scale up when checked */
+}
+
+/* Label styling */
+.checklist-item label {
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #4a5568;
+  flex: 1;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .checklist-content {
+    grid-template-columns: 1fr;  /* Switch to single column on mobile */
+  }
+}
+
+.checklist-subsection {
+  margin: 12px 0;
+  padding-left: 8px;
+  border-left: 2px solid #e2e8f0;
+}
+
+.subsection-label {
+  font-weight: 500;
+  color: #4a5568;
+  margin-bottom: 8px;
+}
+
+.subsection-items {
+  margin-left: 16px;
+}
+
+.checklist-item.ml-6 {
+  margin-left: 1.5rem;
+}
+
+.weather-section {
+  margin: 10px 0;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+.weather-button {
+  margin: 5px 0;
+}
+
+.weather-data {
+  padding: 10px;
+  background: white;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.weather-label {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.credits-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.credits-footer p {
+  margin: 0;
+  padding: 2px 0;
+}
+
+.feedback-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.feedback-link:hover {
+  text-decoration: underline;
+}
+
+/* Adjust main content to not be hidden by footer */
+.checklist-container {
+  padding-bottom: 80px;
+}
