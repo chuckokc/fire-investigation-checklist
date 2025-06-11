@@ -1,7 +1,13 @@
 // ChecklistComponent.js
 // This component manages our checklist interface and all its functionality
 import React, { useState, useEffect } from 'react';
-import { structureFireChecklist, interviewChecklist, vehicleFireChecklist } from '../checklistData';
+import {
+    structureFireChecklist,
+    interviewChecklist,
+    vehicleFireChecklist,
+    pcAffidavitChecklist,
+    arsonElementsChecklist
+} from '../checklistData';
 import ExportButton from './ExportButton';
 import WeatherComponent from './WeatherComponent';
 
@@ -47,6 +53,10 @@ function ChecklistComponent() {
                 return interviewChecklist;
             case 'vehicle':
                 return vehicleFireChecklist;
+            case 'pcAffidavit':
+                return pcAffidavitChecklist;
+            case 'arsonElements':
+                return arsonElementsChecklist;
             default:
                 return {};
         }
@@ -62,7 +72,7 @@ function ChecklistComponent() {
                             <div className="subsection-label">{item.label}</div>
                             <div className="subsection-items">
                                 {item.subsections.map((subItem, subIndex) => (
-                                    <div key={`${index}-${subIndex}`} 
+                                    <div key={`${index}-${subIndex}`}
                                          className="checklist-item ml-6">
                                         <input
                                             type="checkbox"
@@ -109,23 +119,35 @@ function ChecklistComponent() {
     return (
         <div className="checklist-container">
             <div className="tab-buttons">
-                <button 
+                <button
                     className={activeTab === 'structure' ? 'active' : ''}
                     onClick={() => setActiveTab('structure')}
                 >
                     Structure Fire
                 </button>
-                <button 
+                <button
                     className={activeTab === 'interview' ? 'active' : ''}
                     onClick={() => setActiveTab('interview')}
                 >
                     Interview
                 </button>
-                <button 
+                <button
                     className={activeTab === 'vehicle' ? 'active' : ''}
                     onClick={() => setActiveTab('vehicle')}
                 >
                     Vehicle Fire
+                </button>
+                <button
+                    className={activeTab === 'pcAffidavit' ? 'active' : ''}
+                    onClick={() => setActiveTab('pcAffidavit')}
+                >
+                    PC Affidavit
+                </button>
+                <button
+                    className={activeTab === 'arsonElements' ? 'active' : ''}
+                    onClick={() => setActiveTab('arsonElements')}
+                >
+                    Arson Elements
                 </button>
             </div>
             <div className="checklist-content">
@@ -143,9 +165,9 @@ function ChecklistComponent() {
 >
     Clear
 </button>
-            
+
             {/* This is the export button component that needs to be added */}
-            <ExportButton 
+            <ExportButton
                 checkedItems={checkedItems}
                 activeTab={activeTab}
                 checklistData={getActiveChecklist()}

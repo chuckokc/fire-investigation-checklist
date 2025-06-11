@@ -10,6 +10,7 @@
 /* Tab buttons with enhanced visual effects */
 .tab-buttons {
   display: flex;
+  flex-wrap: wrap; /* Allows buttons to wrap to the next line on smaller screens */
   gap: 10px;
   margin-bottom: 20px;
   padding: 10px;
