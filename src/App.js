@@ -1,9 +1,9 @@
 import React from 'react';
-import './EnhancedApp.css';
+import './EnhancedApp.css';  // Make sure this is EnhancedApp.css, not App.css
 import EnhancedChecklistComponent from './components/EnhancedChecklistComponent';
 
 function App() {
-  const appVersion = '1.3.0'; // Update this manually when you change versions
+  const appVersion = '1.3.0';
   
   return (
     <div className="App">
