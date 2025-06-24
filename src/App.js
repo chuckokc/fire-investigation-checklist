@@ -1,14 +1,15 @@
 import React from 'react';
 import './EnhancedApp.css';
 import EnhancedChecklistComponent from './components/EnhancedChecklistComponent';
-import { version } from '../package.json';  // Import version
 
 function App() {
+  const appVersion = '1.3.0'; // Update this manually when you change versions
+  
   return (
     <div className="App">
       <div className="app-header">
         <h1>Fire Investigation Checklist</h1>
-        <span className="version-number">v{version}</span>
+        <span className="version-number">v{appVersion}</span>
       </div>
       <EnhancedChecklistComponent />
       <footer className="credits-footer">
