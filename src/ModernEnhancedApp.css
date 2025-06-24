@@ -1,0 +1,785 @@
+/* ModernEnhancedApp.css - Modern, Professional Fire Investigation Checklist Design */
+
+/* Import Google Fonts for a more modern look */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Root variables for modern design system */
+:root {
+    /* Modern color palette */
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-light: #dbeafe;
+    --secondary-color: #dc2626;
+    --secondary-hover: #b91c1c;
+    --success-color: #10b981;
+    --success-light: #d1fae5;
+    --warning-color: #f59e0b;
+    --warning-light: #fed7aa;
+    
+    /* Neutral colors */
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    
+    /* Layout colors */
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --surface-hover: #f9fafb;
+    
+    /* Text colors */
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --text-tertiary: #9ca3af;
+    
+    /* Shadows - more pronounced for modern depth */
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    
+    /* Border radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
+    
+    /* Max width for centered content */
+    --max-width: 1200px;
+}
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--background);
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+/* Main app container */
+.App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modern header with gradient accent */
+.app-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.app-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+}
+
+.app-header > div {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.025em;
+}
+
+.version-number {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    background: var(--gray-100);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+}
+
+/* Enhanced checklist container */
+.enhanced-checklist-container {
+    flex: 1;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 var(--spacing-xl);
+    padding-bottom: 120px;
+}
+
+/* Modern tab navigation */
+.tab-navigation {
+    background: var(--surface);
+    margin: var(--spacing-xl) calc(-1 * var(--spacing-xl)) 0;
+    border-bottom: 1px solid var(--gray-200);
+    position: sticky;
+    top: 73px;
+    z-index: 90;
+    box-shadow: var(--shadow-sm);
+}
+
+.tab-buttons {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+    display: flex;
+    gap: var(--spacing-sm);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.tab-buttons::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-buttons button {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.tab-buttons button:hover {
+    color: var(--text-primary);
+    background: var(--gray-50);
+}
+
+.tab-buttons button.active {
+    color: var(--primary-color);
+    background: var(--primary-light);
+}
+
+.tab-buttons button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px 3px 0 0;
+}
+
+/* Modern progress container */
+.progress-container {
+    background: var(--surface);
+    margin: var(--spacing-lg) calc(-1 * var(--spacing-xl));
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.progress-info span {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.hide-progress {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+}
+
+.hide-progress:hover {
+    background: var(--primary-light);
+}
+
+.progress-bar {
+    height: 8px;
+    background: var(--gray-200);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+    transition: width 0.3s ease;
+    border-radius: var(--radius-full);
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+}
+
+/* Modern search container */
+.search-container {
+    margin: var(--spacing-xl) 0;
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.search-input {
+    flex: 1;
+    max-width: 400px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    padding-left: var(--spacing-xl);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    font-size: 0.9375rem;
+    transition: all 0.2s ease;
+    background: var(--surface);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cpath d='m21 21-4.35-4.35'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 12px center;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.clear-search {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--gray-100);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.clear-search:hover {
+    background: var(--gray-200);
+    color: var(--text-primary);
+}
+
+/* Modern checklist content grid */
+.checklist-content.enhanced {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+/* Modern section cards */
+.checklist-section.enhanced {
+    background: var(--surface);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.checklist-section.enhanced:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+    border-color: var(--gray-300);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: linear-gradient(to right, var(--gray-50), transparent);
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.section-header:hover {
+    background: var(--gray-100);
+}
+
+.section-header h3 {
+    margin: 0;
+    flex: 1;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.section-count {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    background: var(--gray-100);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+}
+
+.section-content {
+    padding: var(--spacing-lg);
+}
+
+/* Nested sections */
+.nested-section {
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.nested-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.nested-section h4 {
+    margin: 0 0 var(--spacing-md) 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Modern checklist items */
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    margin: var(--spacing-xs) 0;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.checklist-item:hover {
+    background: var(--gray-50);
+    transform: translateX(2px);
+}
+
+.checklist-item.checked {
+    opacity: 0.6;
+}
+
+.checkbox-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.checkbox-button:hover {
+    transform: scale(1.1);
+}
+
+.checklist-item label {
+    flex: 1;
+    cursor: pointer;
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+    user-select: none;
+}
+
+.checklist-item label:hover {
+    color: var(--primary-color);
+}
+
+/* Subsection styling */
+.checklist-subsection {
+    margin: var(--spacing-md) 0;
+    padding-left: var(--spacing-sm);
+    border-left: 3px solid var(--primary-light);
+}
+
+.subsection-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9375rem;
+}
+
+.subsection-items {
+    margin-left: var(--spacing-md);
+}
+
+/* Weather component styling */
+.weather-section {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--primary-light), var(--success-light));
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-200);
+}
+
+.weather-label {
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+/* Fixed action buttons with modern style */
+.fixed {
+    position: fixed;
+    z-index: 50;
+}
+
+.bottom-4 {
+    bottom: var(--spacing-lg);
+}
+
+.left-4 {
+    left: var(--spacing-lg);
+}
+
+.right-4 {
+    right: var(--spacing-lg);
+}
+
+/* Modern button styles */
+button.bg-red-500 {
+    background: linear-gradient(135deg, var(--secondary-color), #ef4444);
+    color: white;
+    border: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+}
+
+button.bg-red-500:hover {
+    background: linear-gradient(135deg, var(--secondary-hover), var(--secondary-color));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* Export button styles */
+.export-button-container {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    z-index: 50;
+}
+
+.export-button {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-lg);
+}
+
+.export-button.primary {
+    background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+    color: white;
+}
+
+.export-button.primary:hover {
+    background: linear-gradient(135deg, var(--primary-hover), var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+}
+
+.export-options {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: var(--spacing-sm);
+    background: var(--surface);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    min-width: 200px;
+}
+
+.export-option {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    background: var(--surface);
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.export-option:hover {
+    background: var(--gray-50);
+    color: var(--primary-color);
+}
+
+.export-option:not(:last-child) {
+    border-bottom: 1px solid var(--gray-100);
+}
+
+/* Footer styling */
+.credits-footer {
+    background: var(--surface);
+    border-top: 1px solid var(--gray-200);
+    padding: var(--spacing-lg);
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: var(--spacing-2xl);
+}
+
+.credits-footer p {
+    margin: 0;
+    padding: var(--spacing-xs) 0;
+}
+
+.feedback-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.feedback-link:hover {
+    text-decoration: underline;
+    color: var(--primary-hover);
+}
+
+/* Utility classes */
+.w-4 { width: 1rem; }
+.h-4 { height: 1rem; }
+.w-5 { width: 1.25rem; }
+.h-5 { height: 1.25rem; }
+.w-6 { width: 1.5rem; }
+.h-6 { height: 1.5rem; }
+
+.text-green-600 { color: var(--success-color); }
+.text-gray-400 { color: var(--gray-400); }
+.text-gray-500 { color: var(--gray-500); }
+.text-red-500 { color: var(--secondary-color); }
+.text-white { color: white; }
+
+.bg-red-600:hover { background-color: var(--secondary-hover); }
+.bg-blue-500 { background-color: var(--primary-color); }
+.bg-blue-600:hover { background-color: var(--primary-hover); }
+
+.p-3 { padding: var(--spacing-sm); }
+.p-4 { padding: var(--spacing-md); }
+.rounded-full { border-radius: var(--radius-full); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+
+.line-through { text-decoration: line-through; }
+.ml-6 { margin-left: 1.5rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.transition-transform {
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+/* Weather component specific styles */
+.weather-data {
+    background: var(--surface);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-top: var(--spacing-md);
+    border: 1px solid var(--gray-200);
+}
+
+.grid { display: grid; }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.gap-2 { gap: var(--spacing-sm); }
+.text-sm { font-size: 0.875rem; }
+
+/* Responsive design */
+@media (max-width: 768px) {
+    :root {
+        --spacing-xl: 1rem;
+        --spacing-2xl: 2rem;
+    }
+    
+    .app-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .checklist-content.enhanced {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-input {
+        max-width: 100%;
+    }
+    
+    .tab-buttons {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .progress-container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0f172a;
+        --surface: #1e293b;
+        --surface-hover: #334155;
+        --text-primary: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --text-tertiary: #94a3b8;
+        --gray-50: #1e293b;
+        --gray-100: #334155;
+        --gray-200: #475569;
+        --gray-300: #64748b;
+        --primary-light: #1e3a8a;
+        --success-light: #064e3b;
+    }
+    
+    .app-header {
+        background: rgba(30, 41, 59, 0.95);
+    }
+    
+    .search-input {
+        background-color: var(--surface);
+        color: var(--text-primary);
+    }
+    
+    .weather-section {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(16, 185, 129, 0.2));
+    }
+}
+
+/* Print styles */
+@media print {
+    .tab-navigation,
+    .search-container,
+    .progress-container,
+    .fixed,
+    .credits-footer {
+        display: none !important;
+    }
+    
+    .checklist-content.enhanced {
+        display: block;
+    }
+    
+    .checklist-section.enhanced {
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+}
+
+/* Loading animation for weather component */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.weather-button:disabled {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Animation for checklist items */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.checklist-item {
+    animation: slideIn 0.3s ease forwards;
+}
+
+/* Chevron icon transitions */
+.section-header svg {
+    transition: transform 0.3s ease;
+}

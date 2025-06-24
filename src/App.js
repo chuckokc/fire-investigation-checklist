@@ -1,5 +1,5 @@
 import React from 'react';
-import './EnhancedApp.css';  // Make sure this is EnhancedApp.css, not App.css
+import './ModernEnhancedApp.css'; // Using the new CSS file
 import EnhancedChecklistComponent from './components/EnhancedChecklistComponent';
 
 function App() {
@@ -7,11 +7,15 @@ function App() {
   
   return (
     <div className="App">
-      <div className="app-header">
-        <h1>Fire Investigation Checklist</h1>
-        <span className="version-number">v{appVersion}</span>
-      </div>
+      <header className="app-header">
+        <div>
+          <h1>Fire Investigation Checklist</h1>
+          <span className="version-number">v{appVersion}</span>
+        </div>
+      </header>
+      
       <EnhancedChecklistComponent />
+      
       <footer className="credits-footer">
         <p>Created by Charles Carpenter</p>
         <a 
