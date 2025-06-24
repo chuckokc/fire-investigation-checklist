@@ -111,7 +111,7 @@ function EnhancedExportButton({ checkedItems, activeTab, checklistData }) {
         // Completed items section
         report += `COMPLETED ITEMS\n`;
         report += `${'-'.repeat(20)}\n`;
-        let completedCount = 0;
+        
         
         Object.entries(checklistData).forEach(([section, items]) => {
             const completedInSection = getCompletedItems(section, items);
@@ -127,7 +127,7 @@ function EnhancedExportButton({ checkedItems, activeTab, checklistData }) {
         // Pending items section
         report += `\n\nPENDING ITEMS\n`;
         report += `${'-'.repeat(20)}\n`;
-        let pendingCount = 0;
+        
         
         Object.entries(checklistData).forEach(([section, items]) => {
             const pendingInSection = getPendingItems(section, items);

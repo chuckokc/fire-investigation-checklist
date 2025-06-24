@@ -138,7 +138,6 @@ function EnhancedChecklistComponent() {
             }
             
             // Handle regular items
-            const itemKey = `${sectionKey}-${item}`;
             const isChecked = checkedItems[item] || false;
             
             return (
