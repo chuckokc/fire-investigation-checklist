@@ -112,14 +112,12 @@ function EnhancedExportButton({ checkedItems, activeTab, checklistData }) {
         report += `COMPLETED ITEMS\n`;
         report += `${'-'.repeat(20)}\n`;
         
-        
         Object.entries(checklistData).forEach(([section, items]) => {
             const completedInSection = getCompletedItems(section, items);
             if (completedInSection.length > 0) {
                 report += `\n${section}:\n`;
                 completedInSection.forEach(item => {
                     report += `  ✓ ${item}\n`;
-                    completedCount++;
                 });
             }
         });
@@ -128,14 +126,12 @@ function EnhancedExportButton({ checkedItems, activeTab, checklistData }) {
         report += `\n\nPENDING ITEMS\n`;
         report += `${'-'.repeat(20)}\n`;
         
-        
         Object.entries(checklistData).forEach(([section, items]) => {
             const pendingInSection = getPendingItems(section, items);
             if (pendingInSection.length > 0) {
                 report += `\n${section}:\n`;
                 pendingInSection.forEach(item => {
                     report += `  ○ ${item}\n`;
-                    pendingCount++;
                 });
             }
         });
@@ -343,3 +339,67 @@ function EnhancedExportButton({ checkedItems, activeTab, checklistData }) {
 }
 
 export default EnhancedExportButton;
+
+// Add these styles to your CSS file
+const exportButtonStyles = `
+.export-button-container {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 50;
+}
+
+.export-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.export-button.primary {
+    background: #3b82f6;
+    color: white;
+}
+
+.export-button.primary:hover {
+    background: #2563eb;
+}
+
+.export-options {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 0.5rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+}
+
+.export-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    background: white;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+}
+
+.export-option:hover {
+    background: #f3f4f6;
+}
+
+.export-option:not(:last-child) {
+    border-bottom: 1px solid #e5e7eb;
+}
+`;
